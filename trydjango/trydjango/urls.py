@@ -24,9 +24,9 @@ urlpatterns = [
 
     # Posts URLs
     path('',posts_list),
-    path('create/',posts_create),
-    path('detail/',posts_detail),
-    path('update/',posts_update),
-    path('delete/',posts_delete),
+    path('posts/create/',posts_create),
+    path('posts/<id>/',posts_detail),
+    path('posts/update/',posts_update),
+    path('posts/delete/',posts_delete),
 
 ]
