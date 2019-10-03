@@ -1,11 +1,15 @@
+{% extends 'base.html' %}
 
+{% block content %}
 
-<body>
-    <h1> {{ title }}  </h1>
+<div class='col-sm-6 col-sm-offest-4'>
+    
+    <img src="{{ instance.image.url }}" class="img-responsive">
+    <h1> {{ title }} <small>{{ instance.timestamp }} </small></h1>
 
-    {{ instance.title }} <br>
     {{ instance.content }} <br>
     {{ instance.updated }} <br>
-    {{ instance.id }} <br>
-    {{ instance.timestamp }} <br>
-</body>
+
+
+</div>
+{% endblock %}

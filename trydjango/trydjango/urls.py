@@ -16,6 +16,10 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
+# Media URls
+from django.conf import settings
+from django.conf.urls.static import static
+
 # Posts app
 from posts.views import *
 
@@ -23,10 +27,14 @@ urlpatterns = [
     path('admin/', admin.site.urls),
 
     # Posts URLs
-    path('',posts_list),
+    path('posts/',posts_list, name='list'),
     path('posts/create/',posts_create),
-    path('posts/<id>/',posts_detail),
-    path('posts/update/',posts_update),
-    path('posts/delete/',posts_delete),
+    path('posts/<slug>/',posts_detail, name = 'detail'),
+    path('posts/<slug>/update',posts_update, name = 'update'),
+    path('posts/<slug>/delete/',posts_delete),
 
 ]
+
+# Media URLs
+urlpatterns = urlpatterns + static(settings.MEDIA_URL,
+document_root = settings.MEDIA_ROOT)
